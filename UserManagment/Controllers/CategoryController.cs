@@ -31,6 +31,7 @@ namespace UserManagment.Controllers
             {
                 _UserDB.categories.Add(obj);
                 _UserDB.SaveChanges();
+                TempData["success"] = "دسته جدید با موفقیت ایجاد شد";
                 //return View();
                 return RedirectToAction("Index");
             }
@@ -63,6 +64,7 @@ namespace UserManagment.Controllers
             {
                 _UserDB.categories.Update(obj);
                 _UserDB.SaveChanges();
+                TempData["success"] = "دسته  با موفقیت ویرایش شد";
                 return RedirectToAction("Index");
             }
             return View(obj);
@@ -94,6 +96,7 @@ namespace UserManagment.Controllers
             var obj = _UserDB.categories.Find(id);
             _UserDB.categories.Remove(obj);
             _UserDB.SaveChanges();
+            TempData["success"] = "دسته  با موفقیت حذف شد";
             return RedirectToAction("Index");
 
 
